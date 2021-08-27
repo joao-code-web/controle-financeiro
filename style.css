@@ -150,3 +150,38 @@ input[type='number'] {
 .transactions li:hover .delete-btn {
   opacity: 1;
 }
+
+.error {
+  width: 300px;
+  height: 250px;
+  border-radius: 20px;
+  background-color: rebeccapurple;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  display: none;
+}
+
+.error p {
+  font-size: 30px;
+}
+
+.error i:nth-child(2) {
+  padding-top: 30px;
+  padding-left: 15px;
+  text-align: center;
+  font-size: 50px;
+}
+
+.close {
+  text-align: inherit;
+  float: right;
+  padding-top: 10px;
+  cursor: pointer;
+  padding-right: 10px;
+}
+.show {
+  display: block;
+}
