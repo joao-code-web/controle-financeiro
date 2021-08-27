@@ -2,9 +2,11 @@ const transactonsUl = window.document.querySelector("#transactions"); //<ul id="
 const incomeDisplay = window.document.querySelector('#money-plus'); //<p id="money-plus" class="money plus">+ R$0.00</p>
 const expenseDisplay = window.document.querySelector('#money-minus'); // <p id="money-minus" class="money minus">- R$0.00</p>
 const balanceDisplay = window.document.querySelector('#balance');//<h1 id="balance" class="balance">R$ 0.00</h1>
-const form = window.document.querySelector('#form');
+const form = window.document.querySelector('#form'); //<form id="form"></form>
 const inputNameTransaction = window.document.querySelector('#text');
-const inputValueTransaction = window.document.querySelector('#amount')
+const inputValueTransaction = window.document.querySelector('#amount');
+const mensageError = window.document.querySelector('#error');
+const closeMensageError =     window.document.getElementsByClassName('close')[0];
 
 const localStoregeTransactions = JSON.parse(localStorage
     .getItem('transactions'));
@@ -90,7 +92,7 @@ const handleFormSubmit = event => {
     const isSomeInputEmpty = inputNameTransaction.value.trim() === '' || inputValueTransaction.value.trim() === ''; //faz referencia ao if lá embaixo
 
     if(isSomeInputEmpty) {
-        console.log('nada'); // dps faz um negocio para mostra que ta com erro vagabundo
+        mensageError.classList.add('show');
         return 
     } 
 
@@ -102,3 +104,11 @@ const handleFormSubmit = event => {
 }
 
 form.addEventListener('submit', handleFormSubmit);
+
+const hideMensageError = () => {
+    closeMensageError.addEventListener('click', () => {
+        mensageError.classList.remove('show');
+    });
+}
+
+hideMensageError();
